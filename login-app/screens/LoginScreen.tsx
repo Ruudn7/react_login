@@ -4,9 +4,8 @@ import { Alert, StyleSheet, TextInput, View } from 'react-native';
 import AppButton from '../components/AppButton';
 import Colors from '../constans/Colors';
 
- 
 export interface LoginScreen {
-
+    loginStatus: (isUserLogin: boolean) => void;
 }
 
 const LoginScreen = (props: LoginScreen) => {
@@ -25,8 +24,10 @@ const LoginScreen = (props: LoginScreen) => {
     const loginHandler = () => {
         if (currentLogin === 'Login' && currentPassword === 'Password' ) {
             Alert.alert('You are login', '', [{text: 'Ok', style: 'default'}])
+            props.loginStatus(true);
         } else {
             Alert.alert('Try again', '', [{text: 'Ok', style: 'destructive'}])
+            props.loginStatus(false);
         }
     }
     return(
