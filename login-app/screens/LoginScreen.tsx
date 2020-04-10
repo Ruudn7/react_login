@@ -45,7 +45,7 @@ const LoginScreen = (props: LoginScreen) => {
                     secureTextEntry={true}
                 />             
             </View>
-            <AppButton styles={styles.buttonStyle} onPress={loginHandler} />
+            <AppButton styles={styles.buttonStyle} onPress={loginHandler} text={'Login'} />
         </View>
 
     )

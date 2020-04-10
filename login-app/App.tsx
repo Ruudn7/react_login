@@ -13,7 +13,13 @@ export default function App() {
     setIsLogin(isUserLogin);
   }
 
-  const content = !isLogin ? <LoginScreen loginStatus={isLoginHandler}></LoginScreen> : <AppScreen></AppScreen>;
+  let content;
+  if (!isLogin) {
+    content = <LoginScreen loginStatus={isLoginHandler}></LoginScreen>
+  } else {
+    content = <AppScreen logoutEvent={isLoginHandler}></AppScreen>;
+  }
+
   
   return (
     <View style={styles.container}>
