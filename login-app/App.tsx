@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
 import Header from './components/Header';
-import LoginForm from './components/LoginForm';
+import LoginScreen from './screens/LoginScreen';
 
 export default function App() {
   return (
@@ -10,7 +10,7 @@ export default function App() {
       <Header title="Login App" />
       <View style={styles.mainContent}>
         <ImageBackground source={require('./assets/background.jpeg')} style={styles.image}>
-          <LoginForm></LoginForm>
+          <LoginScreen></LoginScreen>
         </ImageBackground>
       </View>
     </View>
