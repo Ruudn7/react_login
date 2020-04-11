@@ -37,12 +37,14 @@ const LoginScreen = (props: LoginScreen) => {
                     style={[styles.input, styles.firstInput]}
                     placeholder="Login"
                     onChangeText={currentLoginHandler}
+                    onSubmitEditing={loginHandler}
                 />
                 <TextInput
                     style={styles.input}
                     placeholder="Password"
                     onChangeText={currentPasswordHandler}
                     secureTextEntry={true}
+                    onSubmitEditing={loginHandler}
                 />             
             </View>
             <AppButton styles={styles.buttonStyle} onPress={loginHandler} text={'Login'} />
