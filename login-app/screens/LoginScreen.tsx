@@ -3,6 +3,7 @@ import { Alert, StyleSheet, TextInput, View, ImageBackground } from 'react-nativ
 
 import AppButton from '../components/AppButton';
 import Colors from '../constans/Colors';
+import Header from '../components/Header';
 
 export interface LoginScreen {
     loginStatus: (isUserLogin: boolean) => void;
@@ -24,14 +25,15 @@ const LoginScreen = (props: LoginScreen) => {
     const loginHandler = () => {
         if (currentLogin === 'Login' && currentPassword === 'Password' ) {
             Alert.alert('You are login', '', [{text: 'Ok', style: 'default'}])
-            props.loginStatus(true);
+            // props.loginStatus(true);
         } else {
             Alert.alert('Try again', '', [{text: 'Ok', style: 'destructive'}])
-            props.loginStatus(false);
+            // props.loginStatus(false);
         }
     }
     return(
         <View style={styles.screen}>
+            <Header title="Login App" />
             <ImageBackground source={require('../assets/background.jpeg')} style={styles.image}>
                 <View style={styles.container}>
                     <TextInput 
