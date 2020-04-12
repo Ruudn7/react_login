@@ -5,6 +5,8 @@ import Header from './components/Header';
 import LoginScreen from './screens/LoginScreen';
 import AppScreen from './screens/AppScreen';
 
+import AppDrawer from './Drawer'
+import { NavigationContainer } from '@react-navigation/native';
 export default function App() {
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
@@ -22,14 +24,11 @@ export default function App() {
 
   
   return (
-    <View style={styles.container}>
-      <Header title="Login App" />
-      <View style={styles.mainContent}>
-        <ImageBackground source={require('./assets/background.jpeg')} style={styles.image}>
-          {content}
-        </ImageBackground>
-      </View>
-    </View>
+    <NavigationContainer>
+        <Header title="Login App" />
+        <AppDrawer />
+    </NavigationContainer>
+
   ); 
 }
 
@@ -38,15 +37,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   mainContent: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-    justifyContent: "center",
-    width: "100%",
-    alignItems: 'center',
-  },
+  }
 });

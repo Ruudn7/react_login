@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
 import Colors from '../constans/Colors';
 import AppButton from '../components/AppButton';
 
@@ -10,16 +10,27 @@ export interface AppScreen {
 const AppScreen = (props : AppScreen) => {
     return(
         <View style={styles.container}>
-            <Text>App Screen After Login!</Text>
-            <AppButton onPress={() => props.logoutEvent(false)} text={'Logout'}/>
+            <ImageBackground source={require('../assets/background.jpeg')} style={styles.image}>
+                <Text>App Screen After Login!</Text>
+                <AppButton onPress={() => props.logoutEvent(false)} text={'Logout'}/>
+            </ImageBackground>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'center'
-    }
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: "center",
+        width: "100%",
+        alignItems: 'center',
+      },
 })
 
 export default AppScreen;

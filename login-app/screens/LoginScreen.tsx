@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Alert, StyleSheet, TextInput, View } from 'react-native';
+import { Alert, StyleSheet, TextInput, View, ImageBackground } from 'react-native';
 
 import AppButton from '../components/AppButton';
 import Colors from '../constans/Colors';
@@ -32,22 +32,25 @@ const LoginScreen = (props: LoginScreen) => {
     }
     return(
         <View style={styles.screen}>
-            <View style={styles.container}>
-                <TextInput 
-                    style={[styles.input, styles.firstInput]}
-                    placeholder="Login"
-                    onChangeText={currentLoginHandler}
-                    onSubmitEditing={loginHandler}
-                />
-                <TextInput
-                    style={styles.input}
-                    placeholder="Password"
-                    onChangeText={currentPasswordHandler}
-                    secureTextEntry={true}
-                    onSubmitEditing={loginHandler}
-                />             
-            </View>
-            <AppButton styles={styles.buttonStyle} onPress={loginHandler} text={'Login'} />
+            <ImageBackground source={require('../assets/background.jpeg')} style={styles.image}>
+                <View style={styles.container}>
+                    <TextInput 
+                        style={[styles.input, styles.firstInput]}
+                        placeholder="Login"
+                        onChangeText={currentLoginHandler}
+                        onSubmitEditing={loginHandler}
+                    />
+                    <TextInput
+                        style={styles.input}
+                        placeholder="Password"
+                        onChangeText={currentPasswordHandler}
+                        secureTextEntry={true}
+                        onSubmitEditing={loginHandler}
+                    />             
+                </View>
+                <AppButton styles={styles.buttonStyle} onPress={loginHandler} text={'Login'} />
+            </ImageBackground>
+
         </View>
 
     )
@@ -55,8 +58,10 @@ const LoginScreen = (props: LoginScreen) => {
 
 const styles = StyleSheet.create<any>({
     screen: {
+        flex: 1,
         width: '100%',
-        alignItems: 'center'
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     container: {
         borderColor: Colors.accent,
@@ -77,6 +82,13 @@ const styles = StyleSheet.create<any>({
         backgroundColor: Colors.accent,
         maxWidth: 180,
         width: '100%'
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: "center",
+        width: "100%",
+        alignItems: 'center',
     }
 })
 
